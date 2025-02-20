@@ -1,0 +1,8 @@
+# Doxyfile 1.13.2
+
+PROJECT_NAME     = "P3 - Sigmoid neuron"
+OUTPUT_DIRECTORY = ./docs
+INPUT            = .
+RECURSIVE        = YES
+EXCLUDE          = ./test/include/
+GENERATE_LATEX   = NO
