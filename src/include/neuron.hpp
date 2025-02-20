@@ -33,9 +33,9 @@ class Neuron {
      *
      * @param inputs Inputs to check with
      *
-     * @return bool: The truth value given the input
+     * @return double: The truth value given the input
      */
-    bool output(const std::vector<bool> &inputs) const;
+    double output(const std::vector<double> &inputs) const;
     /**
      * @brief Prints the Neuron in a readable manner
      */

@@ -7,7 +7,7 @@ NeuronNetwork::NeuronNetwork(const std::vector<NeuronLayer> layers) {
     this->layers = layers;
 }
 
-std::vector<bool> NeuronNetwork::feed_forward(std::vector<bool> inputs) const {
+std::vector<double> NeuronNetwork::feed_forward(std::vector<double> inputs) const {
     for (const NeuronLayer &layer : layers) {
         inputs = layer.output(inputs);
     }

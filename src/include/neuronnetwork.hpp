@@ -32,9 +32,9 @@ class NeuronNetwork {
      * @brief Gives outputs given inputs
      *
      * @param inputs The inputs for this output
-     * @return std::vector<bool>: A list of outputs
+     * @return std::vector<double>: A list of outputs
      */
-    std::vector<bool> feed_forward(std::vector<bool> inputs) const;
+    std::vector<double> feed_forward(std::vector<double> inputs) const;
     /**
      * @brief Prints the network in a readable manner
      */

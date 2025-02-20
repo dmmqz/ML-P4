@@ -32,9 +32,9 @@ class NeuronLayer {
      * @brief Gives outputs given inputs
      *
      * @param inputs The inputs for this output
-     * @return std::vector<bool>: A list of outputs
+     * @return std::vector<double>: A list of outputs
      */
-    std::vector<bool> output(const std::vector<bool> &inputs) const;
+    std::vector<double> output(const std::vector<double> &inputs) const;
     /**
      * @brief Prints the layer in a readable manner
      */

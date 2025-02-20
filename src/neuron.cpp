@@ -9,7 +9,7 @@ Neuron::Neuron(const std::vector<double> &weights, const double &bias) {
     this->bias = bias;
 }
 
-bool Neuron::output(const std::vector<bool> &inputs) const {
+double Neuron::output(const std::vector<double> &inputs) const {
     double dot_product = 0;
     for (int i = 0; i < this->weights.size(); i++) {
         dot_product += inputs[i] * this->weights[i];
@@ -18,7 +18,7 @@ bool Neuron::output(const std::vector<bool> &inputs) const {
     // sigmoid function
     double sigmoid = 1 / (1 + std::exp(-(dot_product + this->bias)));
 
-    return (sigmoid >= 0.5);
+    return sigmoid;
 }
 
 void Neuron::__str__() const {
