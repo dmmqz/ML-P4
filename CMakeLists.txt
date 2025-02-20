@@ -8,13 +8,6 @@ include_directories(
     src/include
 )
 
-add_executable(main
-    src/neuron.cpp
-    src/neuronlayer.cpp
-    src/neuronnetwork.cpp
-    main.cpp
-)
-
 add_executable(test
     src/neuron.cpp
     src/neuronlayer.cpp
