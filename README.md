@@ -1,5 +1,5 @@
-# ML P3 - Sigmoid neuron
-Deze repository bevat de uitwerking voor ML: P3 - Sigmoid in C++.
+# ML P4 - Backpropagation
+Deze repository bevat de uitwerking voor ML: P4 - Backpropagation in C++.
 
 Student: Dylan McGivern<br>
 Studentnummer: 1866428

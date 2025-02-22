@@ -1,4 +1,5 @@
-#include "neuronlayer.hpp"
+#include "include/neuronlayer.hpp"
+#include "include/neuron.hpp"
 
 #include <iostream>
 #include <vector>

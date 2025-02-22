@@ -1,6 +1,6 @@
 # Doxyfile 1.13.2
 
-PROJECT_NAME     = "P3 - Sigmoid neuron"
+PROJECT_NAME     = "P4 - Backpropagation"
 OUTPUT_DIRECTORY = ./docs
 INPUT            = .
 RECURSIVE        = YES
