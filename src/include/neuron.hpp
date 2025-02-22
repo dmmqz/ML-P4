@@ -16,11 +16,10 @@
  * amount of inputs must be as much or less than the amount of weights.
  */
 class Neuron {
-  private:
+  public:
+    double learning_rate = 1;
     std::vector<double> weights;
     double bias;
-
-  public:
     /**
      * @brief Constructs a Neuron
      *
@@ -36,6 +35,12 @@ class Neuron {
      * @return double: The truth value given the input
      */
     double output(const std::vector<double> &inputs) const;
+    double error(const std::vector<double> &inputs, const double &target) const;
+    double gradient(const std::vector<double> &inputs, const double &target,
+                    const double iOutput) const;
+    std::vector<double> delta(const std::vector<double> &inputs, const double &target,
+                              const double iOutput) const;
+    void update(const std::vector<double> &inputs, const double &target, const double iOutput);
     /**
      * @brief Prints the Neuron in a readable manner
      */

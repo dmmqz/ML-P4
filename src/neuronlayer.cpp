@@ -4,9 +4,7 @@
 #include <iostream>
 #include <vector>
 
-NeuronLayer::NeuronLayer(const std::vector<Neuron> &neurons) {
-    this->neurons = neurons;
-}
+NeuronLayer::NeuronLayer(const std::vector<Neuron> &neurons) { this->neurons = neurons; }
 
 std::vector<double> NeuronLayer::output(const std::vector<double> &inputs) const {
     std::vector<double> outputs{};
