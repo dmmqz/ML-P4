@@ -22,23 +22,37 @@ double Neuron::output(const std::vector<double> &inputs) const {
     return sigmoid;
 }
 
-double Neuron::error(const std::vector<double> &inputs, const double &target) const {
+double Neuron::calcError(const std::vector<double> &inputs, const double &target) {
     double output = this->output(inputs);
-
     double sigmoid_deriv = output * (1 - output);
-    return (sigmoid_deriv * -(target - output));
+
+    this->error = sigmoid_deriv * -(target - output);
+    return this->error;
+}
+
+double Neuron::hiddenError(const std::vector<double> &inputs, const std::vector<double> &weights,
+                           const std::vector<double> &jErrors) {
+    double output = this->output(inputs);
+    double sigmoid_deriv = output * (1 - output);
+
+    double sum = 0;
+    for (int i = 0; i < jErrors.size(); i++) {
+        sum += jErrors[i] * weights[i];
+    }
+    this->error = sigmoid_deriv * sum;
+    return this->error;
 }
 
 double Neuron::gradient(const std::vector<double> &inputs, const double &target,
                         const double iOutput) const {
-    return (iOutput * this->error(inputs, target));
+    return (iOutput * this->error);
 }
 
 std::vector<double> Neuron::delta(const std::vector<double> &inputs, const double &target,
                                   const double iOutput) const {
     // Includes bias as weights[0]
     std::vector<double> weights(this->weights.size() + 1);
-    double error = this->error(inputs, target);
+    double error = this->error;
 
     weights[0] = this->learning_rate * error;
 

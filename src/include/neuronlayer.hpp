@@ -18,10 +18,8 @@
  * that is equal to the amount of Neurons.
  */
 class NeuronLayer {
-  private:
-    std::vector<Neuron> neurons;
-
   public:
+    std::vector<Neuron> neurons;
     /**
      * @brief Constructs a layer of neurons
      *

@@ -21,6 +21,7 @@ class Neuron {
     std::vector<double> weights;
     std::vector<double> newWeights;
     double bias;
+    double error;
     /**
      * @brief Constructs a Neuron
      *
@@ -36,7 +37,9 @@ class Neuron {
      * @return double: The truth value given the input
      */
     double output(const std::vector<double> &inputs) const;
-    double error(const std::vector<double> &inputs, const double &target) const;
+    double calcError(const std::vector<double> &inputs, const double &target);
+    double hiddenError(const std::vector<double> &inputs, const std::vector<double> &weights,
+                       const std::vector<double> &jErrors);
     double gradient(const std::vector<double> &inputs, const double &target,
                     const double iOutput) const;
     std::vector<double> delta(const std::vector<double> &inputs, const double &target,

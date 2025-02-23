@@ -18,16 +18,14 @@
  * to the amount of Neurons in the last layer.
  */
 class NeuronNetwork {
-  private:
-    std::vector<NeuronLayer> layers;
-
   public:
+    std::vector<NeuronLayer> layers;
     /**
      * @brief Constructs a network of neurons
      *
      * @param neurons A list of neurons for this layer
      */
-    NeuronNetwork(const std::vector<NeuronLayer> layers);
+    NeuronNetwork(const std::vector<NeuronLayer> &layers);
     /**
      * @brief Gives outputs given inputs
      *
@@ -35,6 +33,8 @@ class NeuronNetwork {
      * @return std::vector<double>: A list of outputs
      */
     std::vector<double> feed_forward(std::vector<double> inputs) const;
+    void
+    backpropagation(const std::pair<std::vector<double>, std::vector<double>> &trainingExample);
     /**
      * @brief Prints the network in a readable manner
      */
