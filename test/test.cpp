@@ -81,7 +81,8 @@ TEST_CASE("Backpropagation AND-gate WITHOUT network") {
     CHECK(std::abs(error - expectedError) < 0.01);
 
     // Backpropagation
-    andGate.update(inputs[0], targets[0], inputs[0][0]);
+    andGate.storeNewWeights(inputs[0], targets[0], inputs[0][0]);
+    andGate.update();
 
     std::vector<double> expectedWeights = {1.378, -0.5, 0.5};
 

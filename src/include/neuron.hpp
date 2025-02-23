@@ -19,6 +19,7 @@ class Neuron {
   public:
     double learning_rate = 1;
     std::vector<double> weights;
+    std::vector<double> newWeights;
     double bias;
     /**
      * @brief Constructs a Neuron
@@ -40,7 +41,9 @@ class Neuron {
                     const double iOutput) const;
     std::vector<double> delta(const std::vector<double> &inputs, const double &target,
                               const double iOutput) const;
-    void update(const std::vector<double> &inputs, const double &target, const double iOutput);
+    void storeNewWeights(const std::vector<double> &inputs, const double &target,
+                         const double iOutput);
+    void update();
     /**
      * @brief Prints the Neuron in a readable manner
      */

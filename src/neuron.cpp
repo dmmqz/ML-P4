@@ -7,6 +7,7 @@
 Neuron::Neuron(const std::vector<double> &weights, const double &bias) {
     this->weights = weights;
     this->bias = bias;
+    this->newWeights.resize(this->weights.size() + 1);
 }
 
 double Neuron::output(const std::vector<double> &inputs) const {
@@ -48,12 +49,21 @@ std::vector<double> Neuron::delta(const std::vector<double> &inputs, const doubl
     return weights;
 }
 
-void Neuron::update(const std::vector<double> &inputs, const double &target, const double iOutput) {
+void Neuron::storeNewWeights(const std::vector<double> &inputs, const double &target,
+                             const double iOutput) {
     std::vector<double> weights = this->delta(inputs, target, iOutput);
-    this->bias -= weights[0];
+    this->newWeights[0] = this->bias - weights[0];
 
-    for (int i = 1; i < this->weights.size(); i++) {
-        this->weights[i - 1] -= weights[i];
+    for (int i = 1; i < this->weights.size() + 1; i++) {
+        this->newWeights[i] = this->weights[i - 1] - weights[i];
+    }
+}
+
+void Neuron::update() {
+    this->bias = this->newWeights[0];
+
+    for (int i = 1; i < this->weights.size() + 1; i++) {
+        this->weights[i - 1] = this->newWeights[i];
     }
 }
 
