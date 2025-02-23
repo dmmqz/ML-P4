@@ -29,32 +29,36 @@ void NeuronNetwork::backpropagation(
     // Store new weights and bias for output layer
     for (int i = 0; i < outputLayer.neurons.size(); i++) {
         outputLayer.neurons[i].calcError(iOutputs, trainingExample.second[i]);
-        outputLayer.neurons[i].storeNewWeights(iOutputs, trainingExample.second[i], iOutputs[i]);
+        outputLayer.neurons[i].storeNewWeights(iOutputs, trainingExample.second[i], iOutputs);
     }
 
     // Backpropagation for hidden layers
     for (int i = this->layers.size() - 2; i >= 0; i--) {
         NeuronLayer &layer = this->layers[i];
-        NeuronLayer &nextLayer = this->layers[i + 1];
+        const NeuronLayer &nextLayer = this->layers[i + 1];
 
         std::vector<double> iOutputs = trainingExample.first;
         // Feed forward if there are previous hidden layers
-        for (int j = 0; j < this->layers.size() - 3; j++) {
+        for (int j = 0; j < i; j++) {
             iOutputs = this->layers[j].output(iOutputs);
         }
 
+        // Get errors from next layer
+        std::vector<double> jErrors{};
+        for (const Neuron &neuron : nextLayer.neurons) {
+            jErrors.push_back(neuron.error);
+        }
+
         // Store new weights and bias
-        for (int j = 0; j < layer.neurons.size() - 1; j++) {
+        for (int j = 0; j < layer.neurons.size(); j++) {
             // Get weights and errors from next layer
             std::vector<double> weights{};
-            std::vector<double> jErrors{};
-            for (Neuron &neuron : nextLayer.neurons) {
+            for (const Neuron &neuron : nextLayer.neurons) {
                 weights.push_back(neuron.weights[j]);
-                jErrors.push_back(neuron.error);
             }
 
             layer.neurons[j].hiddenError(iOutputs, weights, jErrors);
-            layer.neurons[j].storeNewWeights(iOutputs, trainingExample.second[j], iOutputs[j]);
+            layer.neurons[j].storeNewWeights(iOutputs, trainingExample.second[j], iOutputs);
         }
     }
 
