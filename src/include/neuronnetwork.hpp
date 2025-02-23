@@ -33,8 +33,9 @@ class NeuronNetwork {
      * @return std::vector<double>: A list of outputs
      */
     std::vector<double> feed_forward(std::vector<double> inputs) const;
-    void
-    backpropagation(const std::pair<std::vector<double>, std::vector<double>> &trainingExample);
+    void backpropagation(const std::vector<double> &input, const std::vector<double> &target);
+    void train(const std::vector<std::vector<double>> &inputs,
+               const std::vector<std::vector<double>> &targets);
     /**
      * @brief Prints the network in a readable manner
      */

@@ -42,10 +42,8 @@ class Neuron {
                        const std::vector<double> &jErrors);
     double gradient(const std::vector<double> &inputs, const double &target,
                     const double iOutput) const;
-    std::vector<double> delta(const std::vector<double> &inputs, const double &target,
-                              const std::vector<double> iOutputs) const;
-    void storeNewWeights(const std::vector<double> &inputs, const double &target,
-                         const std::vector<double> iOutputs);
+    std::vector<double> delta(const std::vector<double> &inputs, const double &target) const;
+    void storeNewWeights(const std::vector<double> &inputs, const double &target);
     void update();
     /**
      * @brief Prints the Neuron in a readable manner
