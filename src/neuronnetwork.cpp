@@ -29,7 +29,7 @@ void NeuronNetwork::backpropagation(const std::vector<double> &input,
     // Store new weights and bias for output layer
     for (int i = 0; i < outputLayer.neurons.size(); i++) {
         outputLayer.neurons[i].calcError(iOutputs, target[i]);
-        outputLayer.neurons[i].storeNewWeights(iOutputs, target[i]);
+        outputLayer.neurons[i].storeNewWeights(iOutputs);
     }
 
     // Backpropagation for hidden layers
@@ -58,7 +58,7 @@ void NeuronNetwork::backpropagation(const std::vector<double> &input,
             }
 
             layer.neurons[j].hiddenError(iOutputs, weights, jErrors);
-            layer.neurons[j].storeNewWeights(iOutputs, target[j]);
+            layer.neurons[j].storeNewWeights(iOutputs);
         }
     }
 

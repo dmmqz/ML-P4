@@ -37,13 +37,12 @@ class Neuron {
      * @return double: The truth value given the input
      */
     double output(const std::vector<double> &inputs) const;
-    double calcError(const std::vector<double> &inputs, const double &target);
-    double hiddenError(const std::vector<double> &inputs, const std::vector<double> &weights,
-                       const std::vector<double> &jErrors);
-    double gradient(const std::vector<double> &inputs, const double &target,
-                    const double iOutput) const;
-    std::vector<double> delta(const std::vector<double> &inputs, const double &target) const;
-    void storeNewWeights(const std::vector<double> &inputs, const double &target);
+    void calcError(const std::vector<double> &inputs, const double &target);
+    void hiddenError(const std::vector<double> &inputs, const std::vector<double> &weights,
+                     const std::vector<double> &jErrors);
+    double gradient(const double iOutput) const;
+    std::vector<double> delta(const std::vector<double> &inputs) const;
+    void storeNewWeights(const std::vector<double> &inputs);
     void update();
     /**
      * @brief Prints the Neuron in a readable manner

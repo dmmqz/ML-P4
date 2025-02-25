@@ -22,16 +22,15 @@ double Neuron::output(const std::vector<double> &inputs) const {
     return sigmoid;
 }
 
-double Neuron::calcError(const std::vector<double> &inputs, const double &target) {
+void Neuron::calcError(const std::vector<double> &inputs, const double &target) {
     double output = this->output(inputs);
     double sigmoid_deriv = output * (1 - output);
 
     this->error = sigmoid_deriv * -(target - output);
-    return this->error;
 }
 
-double Neuron::hiddenError(const std::vector<double> &inputs, const std::vector<double> &weights,
-                           const std::vector<double> &jErrors) {
+void Neuron::hiddenError(const std::vector<double> &inputs, const std::vector<double> &weights,
+                         const std::vector<double> &jErrors) {
     double output = this->output(inputs);
     double sigmoid_deriv = output * (1 - output);
 
@@ -40,30 +39,26 @@ double Neuron::hiddenError(const std::vector<double> &inputs, const std::vector<
         sum += jErrors[i] * weights[i];
     }
     this->error = sigmoid_deriv * sum;
-    return this->error;
 }
 
-double Neuron::gradient(const std::vector<double> &inputs, const double &target,
-                        const double iOutput) const {
-    return (iOutput * this->error);
-}
+double Neuron::gradient(const double iOutput) const { return (iOutput * this->error); }
 
-std::vector<double> Neuron::delta(const std::vector<double> &inputs, const double &target) const {
+std::vector<double> Neuron::delta(const std::vector<double> &inputs) const {
     // Includes bias as weights[0]
-    std::vector<double> weights(this->weights.size() + 1);
+    std::vector<double> deltas(this->weights.size() + 1);
     double error = this->error;
 
-    weights[0] = this->learning_rate * error;
+    deltas[0] = this->learning_rate * error;
 
-    for (int i = 0; i < weights.size() - 1; i++) {
-        weights[i + 1] = this->learning_rate * inputs[i] * error;
+    for (int i = 0; i < deltas.size() - 1; i++) {
+        deltas[i + 1] = this->learning_rate * inputs[i] * error;
     }
 
-    return weights;
+    return deltas;
 }
 
-void Neuron::storeNewWeights(const std::vector<double> &inputs, const double &target) {
-    std::vector<double> weights = this->delta(inputs, target);
+void Neuron::storeNewWeights(const std::vector<double> &inputs) {
+    std::vector<double> weights = this->delta(inputs);
     this->newWeights[0] = this->bias - weights[0];
 
     for (int i = 0; i < this->weights.size(); i++) {
