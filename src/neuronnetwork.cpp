@@ -83,7 +83,7 @@ void NeuronNetwork::train(const std::vector<std::vector<double>> &inputs,
 
 void NeuronNetwork::__str__() const {
     for (auto &layer : this->layers) {
-        std::cout << "Network:" << std::endl;
+        std::cout << "Layer:" << std::endl;
         layer.__str__();
     }
 }

@@ -63,6 +63,50 @@ TEST_CASE("Backpropagation XOR-gate (single iteration)") {
     CHECK(std::abs(xorGate.layers[1].neurons[0].weights[1] - expectedWeights[2][2]) < 0.01);
 }
 
+TEST_CASE("Backpropagation Half Adder (single iteration)") {
+    NeuronNetwork halfAdder = NeuronNetwork(
+        {NeuronLayer({Neuron({0, 0.1}, 0), Neuron({0.2, 0.3}, 0), Neuron({0.4, 0.5}, 0)}),
+         NeuronLayer({Neuron({0.6, 0.7, 0.8}, 0), Neuron({0.9, 1, 1.1}, 0)})});
+
+    halfAdder.backpropagation({1, 1}, {0, 1});
+
+    std::vector<std::vector<double>> expectedWeights = {{-0.016, -0.016, 0.084},
+                                                        {-0.018, 0.182, 0.282},
+                                                        {-0.018, 0.382, 0.482},
+                                                        {-0.131, 0.531, 0.618, 0.707},
+                                                        {0.015, 0.908, 1.008, 1.111}};
+
+    // Zie blz. 22-36 uit het werkboek (ik heb het zelf uitgewerkt)
+    // First layer
+    // Neuron F
+    CHECK(std::abs(halfAdder.layers[0].neurons[0].bias - expectedWeights[0][0]) < 0.01);
+    CHECK(std::abs(halfAdder.layers[0].neurons[0].weights[0] - expectedWeights[0][1]) < 0.01);
+    CHECK(std::abs(halfAdder.layers[0].neurons[0].weights[1] - expectedWeights[0][2]) < 0.01);
+
+    // Neuron G
+    CHECK(std::abs(halfAdder.layers[0].neurons[1].bias - expectedWeights[1][0]) < 0.01);
+    CHECK(std::abs(halfAdder.layers[0].neurons[1].weights[0] - expectedWeights[1][1]) < 0.01);
+    CHECK(std::abs(halfAdder.layers[0].neurons[1].weights[1] - expectedWeights[1][2]) < 0.01);
+
+    // Neuron H
+    CHECK(std::abs(halfAdder.layers[0].neurons[2].bias - expectedWeights[2][0]) < 0.01);
+    CHECK(std::abs(halfAdder.layers[0].neurons[2].weights[0] - expectedWeights[2][1]) < 0.01);
+    CHECK(std::abs(halfAdder.layers[0].neurons[2].weights[1] - expectedWeights[2][2]) < 0.01);
+
+    // Second Layer
+    // Neuron S
+    CHECK(std::abs(halfAdder.layers[1].neurons[0].bias - expectedWeights[3][0]) < 0.01);
+    CHECK(std::abs(halfAdder.layers[1].neurons[0].weights[0] - expectedWeights[3][1]) < 0.01);
+    CHECK(std::abs(halfAdder.layers[1].neurons[0].weights[1] - expectedWeights[3][2]) < 0.01);
+    CHECK(std::abs(halfAdder.layers[1].neurons[0].weights[2] - expectedWeights[3][3]) < 0.01);
+
+    // Neuron C
+    CHECK(std::abs(halfAdder.layers[1].neurons[1].bias - expectedWeights[4][0]) < 0.01);
+    CHECK(std::abs(halfAdder.layers[1].neurons[1].weights[0] - expectedWeights[4][1]) < 0.01);
+    CHECK(std::abs(halfAdder.layers[1].neurons[1].weights[1] - expectedWeights[4][2]) < 0.01);
+    CHECK(std::abs(halfAdder.layers[1].neurons[1].weights[2] - expectedWeights[4][3]) < 0.01);
+}
+
 TEST_CASE("Train AND-gate") {
     NeuronNetwork andGate = NeuronNetwork({NeuronLayer({Neuron({-0.5, 0.5}, 1.5)})});
 
