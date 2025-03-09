@@ -13,4 +13,7 @@ add_executable(test
     src/neuronlayer.cpp
     src/neuronnetwork.cpp
     test/test.cpp
+    test/parsedata.cpp
 )
+
+target_compile_definitions(test PRIVATE PROJ_ROOT="${CMAKE_CURRENT_SOURCE_DIR}")

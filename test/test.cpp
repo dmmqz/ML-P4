@@ -5,6 +5,7 @@
 #include "../src/include/neuron.hpp"
 #include "../src/include/neuronlayer.hpp"
 #include "../src/include/neuronnetwork.hpp"
+#include "include/parsedata.hpp"
 
 #include <cmath>
 
@@ -156,4 +157,91 @@ TEST_CASE("Train Half Adder") {
     CHECK((outputs[1][0] >= 0.5 && outputs[1][1] < 0.5));
     CHECK((outputs[2][0] >= 0.5 && outputs[2][1] < 0.5));
     CHECK((outputs[3][0] < 0.5 && outputs[3][1] >= 0.5));
+}
+
+TEST_CASE("Learn Iris dataset") {
+    std::vector<std::vector<double>> inputs = parseData("iris_train.csv");
+    std::vector<std::vector<double>> targets;
+
+    // parse train data
+    for (std::vector<double> &line : inputs) {
+        std::vector<double> target = {0, 0, 0};
+        int flowerType = line[4];
+
+        target[flowerType] = 1;
+
+        line.pop_back();
+        targets.push_back(target);
+    }
+
+    // Init iris network
+    NeuronNetwork irisNetwork = NeuronNetwork({
+        NeuronLayer({
+            Neuron({0, 0, 0, 0}, 0),
+            Neuron({0, 0, 0, 0}, 0),
+            Neuron({0, 0, 0, 0}, 0),
+            Neuron({0, 0, 0, 0}, 0),
+            Neuron({0, 0, 0, 0}, 0),
+            Neuron({0, 0, 0, 0}, 0),
+            Neuron({0, 0, 0, 0}, 0),
+            Neuron({0, 0, 0, 0}, 0),
+            Neuron({0, 0, 0, 0}, 0),
+            Neuron({0, 0, 0, 0}, 0),
+        }),
+        NeuronLayer({
+            Neuron({0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, 0),
+            Neuron({0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, 0),
+            Neuron({0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, 0),
+            Neuron({0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, 0),
+            Neuron({0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, 0),
+        }),
+        NeuronLayer({
+            Neuron({0, 0, 0, 0, 0}, 0),
+            Neuron({0, 0, 0, 0, 0}, 0),
+            Neuron({0, 0, 0, 0, 0}, 0),
+        }),
+    });
+
+    irisNetwork.train(inputs, targets);
+
+    // parse test data
+    std::vector<std::vector<double>> test_inputs = parseData("iris_test.csv");
+    std::vector<double> test_targets;
+    std::vector<std::vector<double>> test_outputs;
+
+    for (std::vector<double> &line : test_inputs) {
+        int flowerType = line[4];
+
+        line.pop_back();
+        test_targets.push_back(flowerType);
+    }
+
+    for (const std::vector<double> &input : test_inputs) {
+        test_outputs.push_back(irisNetwork.feed_forward(input));
+    }
+
+    // Compare NeuronNetwork outputs vs. real values
+    int total_correct = 0;
+    for (int i = 0; i < test_outputs.size(); i++) {
+        // Flag to check if only 1 prediction is made
+        bool valid_prediction = true;
+
+        if (test_outputs[i][test_targets[i]] >= 0.5) {
+            // Check if other values are predicted (>= 0.5)
+            for (int j = 0; j < test_outputs[i].size(); j++) {
+                if (j != test_targets[i] && test_outputs[i][j] >= 0.5) {
+                    valid_prediction = false;
+                    break;
+                }
+            }
+
+            if (valid_prediction) {
+                total_correct++;
+            }
+        }
+    }
+
+    double accuracy = (double)total_correct / test_outputs.size() * 100;
+
+    std::cout << "Accuracy for Iris dataset: " << accuracy << '%' << std::endl;
 }
