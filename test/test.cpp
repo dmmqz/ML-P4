@@ -245,3 +245,108 @@ TEST_CASE("Learn Iris dataset") {
 
     std::cout << "Accuracy for Iris dataset: " << accuracy << '%' << std::endl;
 }
+
+TEST_CASE("Learn digits dataset") {
+    std::vector<std::vector<double>> inputs = parseData("digits_train.csv");
+    std::vector<std::vector<double>> targets;
+
+    // parse train data
+    for (std::vector<double> &line : inputs) {
+        std::vector<double> target = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        int targetIndex = line[64];
+
+        target[targetIndex] = 1;
+
+        line.pop_back();
+        targets.push_back(target);
+    }
+
+    // Init network
+    NeuronNetwork digitsNetwork = NeuronNetwork({
+        NeuronLayer({
+            Neuron({0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                   0),
+            Neuron({0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                   0),
+            Neuron({0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                   0),
+            Neuron({0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                   0),
+            Neuron({0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                   0),
+            Neuron({0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                   0),
+            Neuron({0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                   0),
+            Neuron({0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                   0),
+        }),
+        NeuronLayer({
+            Neuron({0, 0, 0, 0, 0, 0, 0, 0}, 0),
+            Neuron({0, 0, 0, 0, 0, 0, 0, 0}, 0),
+            Neuron({0, 0, 0, 0, 0, 0, 0, 0}, 0),
+            Neuron({0, 0, 0, 0, 0, 0, 0, 0}, 0),
+            Neuron({0, 0, 0, 0, 0, 0, 0, 0}, 0),
+        }),
+        NeuronLayer({
+            Neuron({0, 0, 0, 0, 0}, 0),
+            Neuron({0, 0, 0, 0, 0}, 0),
+            Neuron({0, 0, 0, 0, 0}, 0),
+        }),
+    });
+
+    digitsNetwork.train(inputs, targets);
+
+    // parse test data
+    std::vector<std::vector<double>> test_inputs = parseData("digits_test.csv");
+    std::vector<double> test_targets;
+    std::vector<std::vector<double>> test_outputs;
+
+    for (std::vector<double> &line : test_inputs) {
+        int targetDigit = line[64];
+
+        line.pop_back();
+        test_targets.push_back(targetDigit);
+    }
+
+    for (const std::vector<double> &input : test_inputs) {
+        test_outputs.push_back(digitsNetwork.feed_forward(input));
+    }
+
+    // Compare NeuronNetwork outputs vs. real values
+    int total_correct = 0;
+    for (int i = 0; i < test_outputs.size(); i++) {
+        // Find the index of the maximum value in the test_outputs[i] vector
+        int max_index = 0;
+        for (int j = 1; j < test_outputs[i].size(); j++) {
+            if (test_outputs[i][j] > test_outputs[i][max_index]) {
+                max_index = j;
+            }
+        }
+
+        // Check if the max index corresponds to the correct target
+        if (max_index == test_targets[i]) {
+            total_correct++;
+        }
+    }
+
+    double accuracy = (double)total_correct / test_outputs.size() * 100;
+
+    std::cout << "Accuracy for Digits dataset: " << accuracy << '%' << std::endl;
+}
