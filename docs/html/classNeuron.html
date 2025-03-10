@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>P3 - Sigmoid neuron: Neuron Class Reference</title>
+<title>P4 - Backpropagation: Neuron Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">P3 - Sigmoid neuron
+   <div id="projectname">P4 - Backpropagation
    </div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
@@ -104,6 +104,7 @@ $(function(){initNavTree('classNeuron.html',''); initResizable(true); });
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="classNeuron-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Neuron Class Reference</div></div>
 </div><!--header-->
@@ -119,13 +120,50 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7a6faf8fd0dcdfd07620eb67081197e7" id="r_a7a6faf8fd0dcdfd07620eb67081197e7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a6faf8fd0dcdfd07620eb67081197e7">Neuron</a> (const std::vector&lt; double &gt; &amp;weights, const double &amp;bias)</td></tr>
 <tr class="memdesc:a7a6faf8fd0dcdfd07620eb67081197e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classNeuron.html" title="Neuron with 1 or more inputs.">Neuron</a>.  <br /></td></tr>
 <tr class="separator:a7a6faf8fd0dcdfd07620eb67081197e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac73ad423edcd6c6e1bc1dd6099162351" id="r_ac73ad423edcd6c6e1bc1dd6099162351"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac73ad423edcd6c6e1bc1dd6099162351">output</a> (const std::vector&lt; bool &gt; &amp;inputs) const</td></tr>
-<tr class="memdesc:ac73ad423edcd6c6e1bc1dd6099162351"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives an output given an input.  <br /></td></tr>
-<tr class="separator:ac73ad423edcd6c6e1bc1dd6099162351"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abda7c3b334664922f3100d1f678666e3" id="r_abda7c3b334664922f3100d1f678666e3"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abda7c3b334664922f3100d1f678666e3">output</a> (const std::vector&lt; double &gt; &amp;inputs) const</td></tr>
+<tr class="memdesc:abda7c3b334664922f3100d1f678666e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives an output given an input.  <br /></td></tr>
+<tr class="separator:abda7c3b334664922f3100d1f678666e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36b224f753c3350df948f3812bf2b489" id="r_a36b224f753c3350df948f3812bf2b489"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36b224f753c3350df948f3812bf2b489">calcError</a> (const std::vector&lt; double &gt; &amp;inputs, const double &amp;target)</td></tr>
+<tr class="memdesc:a36b224f753c3350df948f3812bf2b489"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates error for an output <a class="el" href="classNeuron.html" title="Neuron with 1 or more inputs.">Neuron</a>.  <br /></td></tr>
+<tr class="separator:a36b224f753c3350df948f3812bf2b489"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b0498ce89745ab944d72ef151765393" id="r_a9b0498ce89745ab944d72ef151765393"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b0498ce89745ab944d72ef151765393">hiddenError</a> (const std::vector&lt; double &gt; &amp;inputs, const std::vector&lt; double &gt; &amp;weights, const std::vector&lt; double &gt; &amp;jErrors)</td></tr>
+<tr class="memdesc:a9b0498ce89745ab944d72ef151765393"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates error for a hidden <a class="el" href="classNeuron.html" title="Neuron with 1 or more inputs.">Neuron</a>.  <br /></td></tr>
+<tr class="separator:a9b0498ce89745ab944d72ef151765393"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e3b9d34fbf78e0809291c7ee9c02898" id="r_a3e3b9d34fbf78e0809291c7ee9c02898"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e3b9d34fbf78e0809291c7ee9c02898">gradient</a> (const double iOutput) const</td></tr>
+<tr class="memdesc:a3e3b9d34fbf78e0809291c7ee9c02898"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates gradient to adjust this <a class="el" href="classNeuron.html" title="Neuron with 1 or more inputs.">Neuron</a> with.  <br /></td></tr>
+<tr class="separator:a3e3b9d34fbf78e0809291c7ee9c02898"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa904706bd37db856c825bde75d7c2029" id="r_aa904706bd37db856c825bde75d7c2029"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa904706bd37db856c825bde75d7c2029">delta</a> (const std::vector&lt; double &gt; &amp;inputs) const</td></tr>
+<tr class="memdesc:aa904706bd37db856c825bde75d7c2029"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates change in weights for <a class="el" href="classNeuron.html" title="Neuron with 1 or more inputs.">Neuron</a>.  <br /></td></tr>
+<tr class="separator:aa904706bd37db856c825bde75d7c2029"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a64989ce39ceb1c7600bbe37165cf1a" id="r_a3a64989ce39ceb1c7600bbe37165cf1a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3a64989ce39ceb1c7600bbe37165cf1a">storeNewWeights</a> (const std::vector&lt; double &gt; &amp;inputs)</td></tr>
+<tr class="memdesc:a3a64989ce39ceb1c7600bbe37165cf1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates and stores new weights.  <br /></td></tr>
+<tr class="separator:a3a64989ce39ceb1c7600bbe37165cf1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a782b3b728eee5097ab205a7a7990225b" id="r_a782b3b728eee5097ab205a7a7990225b"><td class="memItemLeft" align="right" valign="top"><a id="a782b3b728eee5097ab205a7a7990225b" name="a782b3b728eee5097ab205a7a7990225b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></tr>
+<tr class="memdesc:a782b3b728eee5097ab205a7a7990225b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes <code>weights</code> attribute to <code>newWeights</code> <br /></td></tr>
+<tr class="separator:a782b3b728eee5097ab205a7a7990225b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5cf2529f3b2b8dae59ee87239ab5f62c" id="r_a5cf2529f3b2b8dae59ee87239ab5f62c"><td class="memItemLeft" align="right" valign="top"><a id="a5cf2529f3b2b8dae59ee87239ab5f62c" name="a5cf2529f3b2b8dae59ee87239ab5f62c"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>__str__</b> () const</td></tr>
 <tr class="memdesc:a5cf2529f3b2b8dae59ee87239ab5f62c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the <a class="el" href="classNeuron.html" title="Neuron with 1 or more inputs.">Neuron</a> in a readable manner. <br /></td></tr>
 <tr class="separator:a5cf2529f3b2b8dae59ee87239ab5f62c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:aea1f409097b4076b2de6c8586b501d60" id="r_aea1f409097b4076b2de6c8586b501d60"><td class="memItemLeft" align="right" valign="top"><a id="aea1f409097b4076b2de6c8586b501d60" name="aea1f409097b4076b2de6c8586b501d60"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>learning_rate</b> = 1</td></tr>
+<tr class="separator:aea1f409097b4076b2de6c8586b501d60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af12a8220e2d2781d1c07ae7851aa83dd" id="r_af12a8220e2d2781d1c07ae7851aa83dd"><td class="memItemLeft" align="right" valign="top"><a id="af12a8220e2d2781d1c07ae7851aa83dd" name="af12a8220e2d2781d1c07ae7851aa83dd"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>weights</b></td></tr>
+<tr class="separator:af12a8220e2d2781d1c07ae7851aa83dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1fa84d97f9180a8637cf71b8f72b0eb" id="r_ab1fa84d97f9180a8637cf71b8f72b0eb"><td class="memItemLeft" align="right" valign="top"><a id="ab1fa84d97f9180a8637cf71b8f72b0eb" name="ab1fa84d97f9180a8637cf71b8f72b0eb"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>newWeights</b></td></tr>
+<tr class="separator:ab1fa84d97f9180a8637cf71b8f72b0eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7dc59218069023c3b8348a353902b0ac" id="r_a7dc59218069023c3b8348a353902b0ac"><td class="memItemLeft" align="right" valign="top"><a id="a7dc59218069023c3b8348a353902b0ac" name="a7dc59218069023c3b8348a353902b0ac"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>bias</b></td></tr>
+<tr class="separator:a7dc59218069023c3b8348a353902b0ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4d851d9f4f5dccb6283e5c19726e1e7" id="r_ad4d851d9f4f5dccb6283e5c19726e1e7"><td class="memItemLeft" align="right" valign="top"><a id="ad4d851d9f4f5dccb6283e5c19726e1e7" name="ad4d851d9f4f5dccb6283e5c19726e1e7"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>error</b></td></tr>
+<tr class="separator:ad4d851d9f4f5dccb6283e5c19726e1e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classNeuron.html" title="Neuron with 1 or more inputs.">Neuron</a> with 1 or more inputs. </p>
@@ -162,16 +200,134 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>__str__</b> () const<
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ac73ad423edcd6c6e1bc1dd6099162351" name="ac73ad423edcd6c6e1bc1dd6099162351"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac73ad423edcd6c6e1bc1dd6099162351">&#9670;&#160;</a></span>output()</h2>
+<a id="a36b224f753c3350df948f3812bf2b489" name="a36b224f753c3350df948f3812bf2b489"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36b224f753c3350df948f3812bf2b489">&#9670;&#160;</a></span>calcError()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool Neuron::output </td>
+          <td class="memname">void Neuron::calcError </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; bool &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>inputs</em></span></td><td>)</td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>inputs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double &amp;</td>          <td class="paramname"><span class="paramname"><em>target</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates error for an output <a class="el" href="classNeuron.html" title="Neuron with 1 or more inputs.">Neuron</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inputs</td><td>The inputs for this <a class="el" href="classNeuron.html" title="Neuron with 1 or more inputs.">Neuron</a> </td></tr>
+    <tr><td class="paramname">target</td><td>The target for this <a class="el" href="classNeuron.html" title="Neuron with 1 or more inputs.">Neuron</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa904706bd37db856c825bde75d7c2029" name="aa904706bd37db856c825bde75d7c2029"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa904706bd37db856c825bde75d7c2029">&#9670;&#160;</a></span>delta()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; double &gt; Neuron::delta </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>inputs</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates change in weights for <a class="el" href="classNeuron.html" title="Neuron with 1 or more inputs.">Neuron</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inputs</td><td>The inputs to check for</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;double&gt;: Deltas to calculate new weights with </dd></dl>
+
+</div>
+</div>
+<a id="a3e3b9d34fbf78e0809291c7ee9c02898" name="a3e3b9d34fbf78e0809291c7ee9c02898"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e3b9d34fbf78e0809291c7ee9c02898">&#9670;&#160;</a></span>gradient()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Neuron::gradient </td>
+          <td>(</td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>iOutput</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates gradient to adjust this <a class="el" href="classNeuron.html" title="Neuron with 1 or more inputs.">Neuron</a> with. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">iOutput</td><td>Output from previous <a class="el" href="classNeuron.html" title="Neuron with 1 or more inputs.">Neuron</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>double: Gradient used in <code>delta</code> method </dd></dl>
+
+</div>
+</div>
+<a id="a9b0498ce89745ab944d72ef151765393" name="a9b0498ce89745ab944d72ef151765393"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b0498ce89745ab944d72ef151765393">&#9670;&#160;</a></span>hiddenError()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Neuron::hiddenError </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>inputs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>weights</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>jErrors</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates error for a hidden <a class="el" href="classNeuron.html" title="Neuron with 1 or more inputs.">Neuron</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inputs</td><td>The inputs for this <a class="el" href="classNeuron.html" title="Neuron with 1 or more inputs.">Neuron</a> </td></tr>
+    <tr><td class="paramname">target</td><td>The target for this <a class="el" href="classNeuron.html" title="Neuron with 1 or more inputs.">Neuron</a> </td></tr>
+    <tr><td class="paramname">jErrors</td><td>Errors of the next <a class="el" href="classNeuron.html" title="Neuron with 1 or more inputs.">Neuron</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abda7c3b334664922f3100d1f678666e3" name="abda7c3b334664922f3100d1f678666e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abda7c3b334664922f3100d1f678666e3">&#9670;&#160;</a></span>output()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Neuron::output </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>inputs</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -184,7 +340,32 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>__str__</b> () const<
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>bool: The truth value given the input </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>double: The truth value given the input </dd></dl>
+
+</div>
+</div>
+<a id="a3a64989ce39ceb1c7600bbe37165cf1a" name="a3a64989ce39ceb1c7600bbe37165cf1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a64989ce39ceb1c7600bbe37165cf1a">&#9670;&#160;</a></span>storeNewWeights()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Neuron::storeNewWeights </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>inputs</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates and stores new weights. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inputs</td><td>The inputs to check for </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

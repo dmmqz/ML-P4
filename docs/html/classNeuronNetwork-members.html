@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>P3 - Sigmoid neuron: Member List</title>
+<title>P4 - Backpropagation: Member List</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">P3 - Sigmoid neuron
+   <div id="projectname">P4 - Backpropagation
    </div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
@@ -109,8 +109,11 @@ $(function(){initNavTree('classNeuronNetwork.html',''); initResizable(true); });
 <p>This is the complete list of members for <a class="el" href="classNeuronNetwork.html">NeuronNetwork</a>, including all inherited members.</p>
 <table class="directory">
   <tr class="even"><td class="entry"><a class="el" href="classNeuronNetwork.html#afbb843316fac4aa4235941209fbd047d">__str__</a>() const</td><td class="entry"><a class="el" href="classNeuronNetwork.html">NeuronNetwork</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classNeuronNetwork.html#a4750003f9cdec7e02d88a1c01bf24ccd">feed_forward</a>(std::vector&lt; bool &gt; inputs) const</td><td class="entry"><a class="el" href="classNeuronNetwork.html">NeuronNetwork</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classNeuronNetwork.html#a7ac83dad3c94474667766885a0df07ca">NeuronNetwork</a>(const std::vector&lt; NeuronLayer &gt; layers)</td><td class="entry"><a class="el" href="classNeuronNetwork.html">NeuronNetwork</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classNeuronNetwork.html#a54f2417b9242d52802abbe1c3b97b941">backpropagation</a>(const std::vector&lt; double &gt; &amp;input, const std::vector&lt; double &gt; &amp;target)</td><td class="entry"><a class="el" href="classNeuronNetwork.html">NeuronNetwork</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classNeuronNetwork.html#a8f9f687c6c8c76b6062c1ac21e65254a">feed_forward</a>(std::vector&lt; double &gt; inputs) const</td><td class="entry"><a class="el" href="classNeuronNetwork.html">NeuronNetwork</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>layers</b> (defined in <a class="el" href="classNeuronNetwork.html">NeuronNetwork</a>)</td><td class="entry"><a class="el" href="classNeuronNetwork.html">NeuronNetwork</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classNeuronNetwork.html#a16d772b06e48bbcd930fcaba64108b57">NeuronNetwork</a>(const std::vector&lt; NeuronLayer &gt; &amp;layers)</td><td class="entry"><a class="el" href="classNeuronNetwork.html">NeuronNetwork</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classNeuronNetwork.html#aa24b189600a782f0d24e1366ea2d739b">train</a>(const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;inputs, const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;targets)</td><td class="entry"><a class="el" href="classNeuronNetwork.html">NeuronNetwork</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

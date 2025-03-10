@@ -24,8 +24,11 @@
 */
 var NAVTREE =
 [
-  [ "P3 - Sigmoid neuron", "index.html", [
-    [ "ML-P3", "md_README.html", null ],
+  [ "P4 - Backpropagation", "index.html", [
+    [ "ML P4 - Backpropagation", "md_README.html", [
+      [ "CMake", "md_README.html#autotoc_md1", null ],
+      [ "Doxygen", "md_README.html#autotoc_md2", null ]
+    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -35,7 +38,11 @@ var NAVTREE =
       ] ]
     ] ],
     [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ]
+      [ "File List", "files.html", "files_dup" ],
+      [ "File Members", "globals.html", [
+        [ "All", "globals.html", null ],
+        [ "Functions", "globals_func.html", null ]
+      ] ]
     ] ]
   ] ]
 ];

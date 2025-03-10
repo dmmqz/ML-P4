@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>P3 - Sigmoid neuron: src/include/neuronnetwork.hpp Source File</title>
+<title>P4 - Backpropagation: src/include/neuronnetwork.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">P3 - Sigmoid neuron
+   <div id="projectname">P4 - Backpropagation
    </div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
@@ -113,19 +113,22 @@ $(function(){initNavTree('neuronnetwork_8hpp_source.html',''); initResizable(tru
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span></div>
 <div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classNeuronNetwork.html">   20</a></span><span class="keyword">class </span><a class="code hl_function" href="classNeuronNetwork.html#a7ac83dad3c94474667766885a0df07ca">NeuronNetwork</a> {</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classNeuronNetwork.html">   20</a></span><span class="keyword">class </span><a class="code hl_function" href="classNeuronNetwork.html#a16d772b06e48bbcd930fcaba64108b57">NeuronNetwork</a> {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    std::vector&lt;NeuronLayer&gt; layers;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>  <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_function" href="classNeuronNetwork.html#a7ac83dad3c94474667766885a0df07ca">NeuronNetwork</a>(<span class="keyword">const</span> std::vector&lt;NeuronLayer&gt; layers);</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    std::vector&lt;bool&gt; <a class="code hl_function" href="classNeuronNetwork.html#a4750003f9cdec7e02d88a1c01bf24ccd">feed_forward</a>(std::vector&lt;bool&gt; inputs) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classNeuronNetwork.html#afbb843316fac4aa4235941209fbd047d">__str__</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>};</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_function" href="classNeuronNetwork.html#a16d772b06e48bbcd930fcaba64108b57">NeuronNetwork</a>(<span class="keyword">const</span> std::vector&lt;NeuronLayer&gt; &amp;layers);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    std::vector&lt;double&gt; <a class="code hl_function" href="classNeuronNetwork.html#a8f9f687c6c8c76b6062c1ac21e65254a">feed_forward</a>(std::vector&lt;double&gt; inputs) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classNeuronNetwork.html#a54f2417b9242d52802abbe1c3b97b941">backpropagation</a>(<span class="keyword">const</span> std::vector&lt;double&gt; &amp;input, <span class="keyword">const</span> std::vector&lt;double&gt; &amp;target);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classNeuronNetwork.html#aa24b189600a782f0d24e1366ea2d739b">train</a>(<span class="keyword">const</span> std::vector&lt;std::vector&lt;double&gt;&gt; &amp;inputs,</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>               <span class="keyword">const</span> std::vector&lt;std::vector&lt;double&gt;&gt; &amp;targets);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classNeuronNetwork.html#afbb843316fac4aa4235941209fbd047d">__str__</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>};</div>
 </div>
-<div class="ttc" id="aclassNeuronNetwork_html_a4750003f9cdec7e02d88a1c01bf24ccd"><div class="ttname"><a href="classNeuronNetwork.html#a4750003f9cdec7e02d88a1c01bf24ccd">NeuronNetwork::feed_forward</a></div><div class="ttdeci">std::vector&lt; bool &gt; feed_forward(std::vector&lt; bool &gt; inputs) const</div><div class="ttdoc">Gives outputs given inputs.</div><div class="ttdef"><b>Definition</b> neuronnetwork.cpp:10</div></div>
-<div class="ttc" id="aclassNeuronNetwork_html_a7ac83dad3c94474667766885a0df07ca"><div class="ttname"><a href="classNeuronNetwork.html#a7ac83dad3c94474667766885a0df07ca">NeuronNetwork::NeuronNetwork</a></div><div class="ttdeci">NeuronNetwork(const std::vector&lt; NeuronLayer &gt; layers)</div><div class="ttdoc">Constructs a network of neurons.</div><div class="ttdef"><b>Definition</b> neuronnetwork.cpp:6</div></div>
-<div class="ttc" id="aclassNeuronNetwork_html_afbb843316fac4aa4235941209fbd047d"><div class="ttname"><a href="classNeuronNetwork.html#afbb843316fac4aa4235941209fbd047d">NeuronNetwork::__str__</a></div><div class="ttdeci">void __str__() const</div><div class="ttdoc">Prints the network in a readable manner.</div><div class="ttdef"><b>Definition</b> neuronnetwork.cpp:17</div></div>
+<div class="ttc" id="aclassNeuronNetwork_html_a16d772b06e48bbcd930fcaba64108b57"><div class="ttname"><a href="classNeuronNetwork.html#a16d772b06e48bbcd930fcaba64108b57">NeuronNetwork::NeuronNetwork</a></div><div class="ttdeci">NeuronNetwork(const std::vector&lt; NeuronLayer &gt; &amp;layers)</div><div class="ttdoc">Constructs a network of neurons.</div><div class="ttdef"><b>Definition</b> neuronnetwork.cpp:7</div></div>
+<div class="ttc" id="aclassNeuronNetwork_html_a54f2417b9242d52802abbe1c3b97b941"><div class="ttname"><a href="classNeuronNetwork.html#a54f2417b9242d52802abbe1c3b97b941">NeuronNetwork::backpropagation</a></div><div class="ttdeci">void backpropagation(const std::vector&lt; double &gt; &amp;input, const std::vector&lt; double &gt; &amp;target)</div><div class="ttdoc">Applies one iteration of backpropagation to the NeuronNetwork.</div><div class="ttdef"><b>Definition</b> neuronnetwork.cpp:16</div></div>
+<div class="ttc" id="aclassNeuronNetwork_html_a8f9f687c6c8c76b6062c1ac21e65254a"><div class="ttname"><a href="classNeuronNetwork.html#a8f9f687c6c8c76b6062c1ac21e65254a">NeuronNetwork::feed_forward</a></div><div class="ttdeci">std::vector&lt; double &gt; feed_forward(std::vector&lt; double &gt; inputs) const</div><div class="ttdoc">Gives outputs given inputs.</div><div class="ttdef"><b>Definition</b> neuronnetwork.cpp:9</div></div>
+<div class="ttc" id="aclassNeuronNetwork_html_aa24b189600a782f0d24e1366ea2d739b"><div class="ttname"><a href="classNeuronNetwork.html#aa24b189600a782f0d24e1366ea2d739b">NeuronNetwork::train</a></div><div class="ttdeci">void train(const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;inputs, const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;targets)</div><div class="ttdoc">Trains the NeuronNetwork using backpropagation</div><div class="ttdef"><b>Definition</b> neuronnetwork.cpp:73</div></div>
+<div class="ttc" id="aclassNeuronNetwork_html_afbb843316fac4aa4235941209fbd047d"><div class="ttname"><a href="classNeuronNetwork.html#afbb843316fac4aa4235941209fbd047d">NeuronNetwork::__str__</a></div><div class="ttdeci">void __str__() const</div><div class="ttdoc">Prints the network in a readable manner.</div><div class="ttdef"><b>Definition</b> neuronnetwork.cpp:84</div></div>
 <div class="ttc" id="aneuronlayer_8hpp_html"><div class="ttname"><a href="neuronlayer_8hpp.html">neuronlayer.hpp</a></div><div class="ttdoc">Define NeuronLayer class.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>P3 - Sigmoid neuron: src/include/neuron.hpp Source File</title>
+<title>P4 - Backpropagation: src/include/neuron.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">P3 - Sigmoid neuron
+   <div id="projectname">P4 - Backpropagation
    </div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
@@ -112,19 +112,33 @@ $(function(){initNavTree('neuron_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span></div>
 <div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classNeuron.html">   18</a></span><span class="keyword">class </span><a class="code hl_function" href="classNeuron.html#a7a6faf8fd0dcdfd07620eb67081197e7">Neuron</a> {</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    std::vector&lt;double&gt; weights;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">double</span> bias;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_function" href="classNeuron.html#a7a6faf8fd0dcdfd07620eb67081197e7">Neuron</a>(<span class="keyword">const</span> std::vector&lt;double&gt; &amp;weights, <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;bias);</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classNeuron.html#ac73ad423edcd6c6e1bc1dd6099162351">output</a>(<span class="keyword">const</span> std::vector&lt;bool&gt; &amp;inputs) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classNeuron.html#a5cf2529f3b2b8dae59ee87239ab5f62c">__str__</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>};</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">double</span> learning_rate = 1;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    std::vector&lt;double&gt; weights;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    std::vector&lt;double&gt; newWeights;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">double</span> bias;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">double</span> error;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_function" href="classNeuron.html#a7a6faf8fd0dcdfd07620eb67081197e7">Neuron</a>(<span class="keyword">const</span> std::vector&lt;double&gt; &amp;weights, <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;bias);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classNeuron.html#abda7c3b334664922f3100d1f678666e3">output</a>(<span class="keyword">const</span> std::vector&lt;double&gt; &amp;inputs) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classNeuron.html#a36b224f753c3350df948f3812bf2b489">calcError</a>(<span class="keyword">const</span> std::vector&lt;double&gt; &amp;inputs, <span class="keyword">const</span> <span class="keywordtype">double</span> &amp;target);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classNeuron.html#a9b0498ce89745ab944d72ef151765393">hiddenError</a>(<span class="keyword">const</span> std::vector&lt;double&gt; &amp;inputs, <span class="keyword">const</span> std::vector&lt;double&gt; &amp;weights,</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                     <span class="keyword">const</span> std::vector&lt;double&gt; &amp;jErrors);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classNeuron.html#a3e3b9d34fbf78e0809291c7ee9c02898">gradient</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> iOutput) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    std::vector&lt;double&gt; <a class="code hl_function" href="classNeuron.html#aa904706bd37db856c825bde75d7c2029">delta</a>(<span class="keyword">const</span> std::vector&lt;double&gt; &amp;inputs) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classNeuron.html#a3a64989ce39ceb1c7600bbe37165cf1a">storeNewWeights</a>(<span class="keyword">const</span> std::vector&lt;double&gt; &amp;inputs);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classNeuron.html#a782b3b728eee5097ab205a7a7990225b">update</a>();</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classNeuron.html#a5cf2529f3b2b8dae59ee87239ab5f62c">__str__</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>};</div>
 </div>
-<div class="ttc" id="aclassNeuron_html_a5cf2529f3b2b8dae59ee87239ab5f62c"><div class="ttname"><a href="classNeuron.html#a5cf2529f3b2b8dae59ee87239ab5f62c">Neuron::__str__</a></div><div class="ttdeci">void __str__() const</div><div class="ttdoc">Prints the Neuron in a readable manner.</div><div class="ttdef"><b>Definition</b> neuron.cpp:24</div></div>
+<div class="ttc" id="aclassNeuron_html_a36b224f753c3350df948f3812bf2b489"><div class="ttname"><a href="classNeuron.html#a36b224f753c3350df948f3812bf2b489">Neuron::calcError</a></div><div class="ttdeci">void calcError(const std::vector&lt; double &gt; &amp;inputs, const double &amp;target)</div><div class="ttdoc">Calculates error for an output Neuron.</div><div class="ttdef"><b>Definition</b> neuron.cpp:25</div></div>
+<div class="ttc" id="aclassNeuron_html_a3a64989ce39ceb1c7600bbe37165cf1a"><div class="ttname"><a href="classNeuron.html#a3a64989ce39ceb1c7600bbe37165cf1a">Neuron::storeNewWeights</a></div><div class="ttdeci">void storeNewWeights(const std::vector&lt; double &gt; &amp;inputs)</div><div class="ttdoc">Calculates and stores new weights.</div><div class="ttdef"><b>Definition</b> neuron.cpp:60</div></div>
+<div class="ttc" id="aclassNeuron_html_a3e3b9d34fbf78e0809291c7ee9c02898"><div class="ttname"><a href="classNeuron.html#a3e3b9d34fbf78e0809291c7ee9c02898">Neuron::gradient</a></div><div class="ttdeci">double gradient(const double iOutput) const</div><div class="ttdoc">Calculates gradient to adjust this Neuron with.</div><div class="ttdef"><b>Definition</b> neuron.cpp:44</div></div>
+<div class="ttc" id="aclassNeuron_html_a5cf2529f3b2b8dae59ee87239ab5f62c"><div class="ttname"><a href="classNeuron.html#a5cf2529f3b2b8dae59ee87239ab5f62c">Neuron::__str__</a></div><div class="ttdeci">void __str__() const</div><div class="ttdoc">Prints the Neuron in a readable manner.</div><div class="ttdef"><b>Definition</b> neuron.cpp:77</div></div>
+<div class="ttc" id="aclassNeuron_html_a782b3b728eee5097ab205a7a7990225b"><div class="ttname"><a href="classNeuron.html#a782b3b728eee5097ab205a7a7990225b">Neuron::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">Changes weights attribute to newWeights</div><div class="ttdef"><b>Definition</b> neuron.cpp:69</div></div>
 <div class="ttc" id="aclassNeuron_html_a7a6faf8fd0dcdfd07620eb67081197e7"><div class="ttname"><a href="classNeuron.html#a7a6faf8fd0dcdfd07620eb67081197e7">Neuron::Neuron</a></div><div class="ttdeci">Neuron(const std::vector&lt; double &gt; &amp;weights, const double &amp;bias)</div><div class="ttdoc">Constructs a Neuron.</div><div class="ttdef"><b>Definition</b> neuron.cpp:7</div></div>
-<div class="ttc" id="aclassNeuron_html_ac73ad423edcd6c6e1bc1dd6099162351"><div class="ttname"><a href="classNeuron.html#ac73ad423edcd6c6e1bc1dd6099162351">Neuron::output</a></div><div class="ttdeci">bool output(const std::vector&lt; bool &gt; &amp;inputs) const</div><div class="ttdoc">Gives an output given an input.</div><div class="ttdef"><b>Definition</b> neuron.cpp:12</div></div>
+<div class="ttc" id="aclassNeuron_html_a9b0498ce89745ab944d72ef151765393"><div class="ttname"><a href="classNeuron.html#a9b0498ce89745ab944d72ef151765393">Neuron::hiddenError</a></div><div class="ttdeci">void hiddenError(const std::vector&lt; double &gt; &amp;inputs, const std::vector&lt; double &gt; &amp;weights, const std::vector&lt; double &gt; &amp;jErrors)</div><div class="ttdoc">Calculates error for a hidden Neuron.</div><div class="ttdef"><b>Definition</b> neuron.cpp:32</div></div>
+<div class="ttc" id="aclassNeuron_html_aa904706bd37db856c825bde75d7c2029"><div class="ttname"><a href="classNeuron.html#aa904706bd37db856c825bde75d7c2029">Neuron::delta</a></div><div class="ttdeci">std::vector&lt; double &gt; delta(const std::vector&lt; double &gt; &amp;inputs) const</div><div class="ttdoc">Calculates change in weights for Neuron.</div><div class="ttdef"><b>Definition</b> neuron.cpp:46</div></div>
+<div class="ttc" id="aclassNeuron_html_abda7c3b334664922f3100d1f678666e3"><div class="ttname"><a href="classNeuron.html#abda7c3b334664922f3100d1f678666e3">Neuron::output</a></div><div class="ttdeci">double output(const std::vector&lt; double &gt; &amp;inputs) const</div><div class="ttdoc">Gives an output given an input.</div><div class="ttdef"><b>Definition</b> neuron.cpp:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

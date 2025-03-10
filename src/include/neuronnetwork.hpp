@@ -30,10 +30,23 @@ class NeuronNetwork {
      * @brief Gives outputs given inputs
      *
      * @param inputs The inputs for this output
+     *
      * @return std::vector<double>: A list of outputs
      */
     std::vector<double> feed_forward(std::vector<double> inputs) const;
+    /**
+     * @brief Applies one iteration of backpropagation to the NeuronNetwork
+     *
+     * @param input Input to use for backpropagation
+     * @param target Target to use for backpropagation
+     */
     void backpropagation(const std::vector<double> &input, const std::vector<double> &target);
+    /**
+     * @brief Trains the NeuronNetwork using `backpropagation`
+     *
+     * @param inputs Inputs to use for backpropagation
+     * @param targets Targets to use for backpropagation
+     */
     void train(const std::vector<std::vector<double>> &inputs,
                const std::vector<std::vector<double>> &targets);
     /**

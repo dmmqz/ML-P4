@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>P3 - Sigmoid neuron: NeuronNetwork Class Reference</title>
+<title>P4 - Backpropagation: NeuronNetwork Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">P3 - Sigmoid neuron
+   <div id="projectname">P4 - Backpropagation
    </div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
@@ -104,6 +104,7 @@ $(function(){initNavTree('classNeuronNetwork.html',''); initResizable(true); });
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="classNeuronNetwork-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">NeuronNetwork Class Reference</div></div>
 </div><!--header-->
@@ -116,23 +117,35 @@ $(function(){initNavTree('classNeuronNetwork.html',''); initResizable(true); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7ac83dad3c94474667766885a0df07ca" id="r_a7ac83dad3c94474667766885a0df07ca"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ac83dad3c94474667766885a0df07ca">NeuronNetwork</a> (const std::vector&lt; <a class="el" href="classNeuronLayer.html">NeuronLayer</a> &gt; layers)</td></tr>
-<tr class="memdesc:a7ac83dad3c94474667766885a0df07ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a network of neurons.  <br /></td></tr>
-<tr class="separator:a7ac83dad3c94474667766885a0df07ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4750003f9cdec7e02d88a1c01bf24ccd" id="r_a4750003f9cdec7e02d88a1c01bf24ccd"><td class="memItemLeft" align="right" valign="top">std::vector&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4750003f9cdec7e02d88a1c01bf24ccd">feed_forward</a> (std::vector&lt; bool &gt; inputs) const</td></tr>
-<tr class="memdesc:a4750003f9cdec7e02d88a1c01bf24ccd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives outputs given inputs.  <br /></td></tr>
-<tr class="separator:a4750003f9cdec7e02d88a1c01bf24ccd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16d772b06e48bbcd930fcaba64108b57" id="r_a16d772b06e48bbcd930fcaba64108b57"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16d772b06e48bbcd930fcaba64108b57">NeuronNetwork</a> (const std::vector&lt; <a class="el" href="classNeuronLayer.html">NeuronLayer</a> &gt; &amp;layers)</td></tr>
+<tr class="memdesc:a16d772b06e48bbcd930fcaba64108b57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a network of neurons.  <br /></td></tr>
+<tr class="separator:a16d772b06e48bbcd930fcaba64108b57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f9f687c6c8c76b6062c1ac21e65254a" id="r_a8f9f687c6c8c76b6062c1ac21e65254a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f9f687c6c8c76b6062c1ac21e65254a">feed_forward</a> (std::vector&lt; double &gt; inputs) const</td></tr>
+<tr class="memdesc:a8f9f687c6c8c76b6062c1ac21e65254a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives outputs given inputs.  <br /></td></tr>
+<tr class="separator:a8f9f687c6c8c76b6062c1ac21e65254a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54f2417b9242d52802abbe1c3b97b941" id="r_a54f2417b9242d52802abbe1c3b97b941"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a54f2417b9242d52802abbe1c3b97b941">backpropagation</a> (const std::vector&lt; double &gt; &amp;input, const std::vector&lt; double &gt; &amp;target)</td></tr>
+<tr class="memdesc:a54f2417b9242d52802abbe1c3b97b941"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies one iteration of backpropagation to the <a class="el" href="classNeuronNetwork.html" title="Network with 1 or more NeuronLayers.">NeuronNetwork</a>.  <br /></td></tr>
+<tr class="separator:a54f2417b9242d52802abbe1c3b97b941"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa24b189600a782f0d24e1366ea2d739b" id="r_aa24b189600a782f0d24e1366ea2d739b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa24b189600a782f0d24e1366ea2d739b">train</a> (const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;inputs, const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;targets)</td></tr>
+<tr class="memdesc:aa24b189600a782f0d24e1366ea2d739b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trains the <a class="el" href="classNeuronNetwork.html" title="Network with 1 or more NeuronLayers.">NeuronNetwork</a> using <code>backpropagation</code>  <br /></td></tr>
+<tr class="separator:aa24b189600a782f0d24e1366ea2d739b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afbb843316fac4aa4235941209fbd047d" id="r_afbb843316fac4aa4235941209fbd047d"><td class="memItemLeft" align="right" valign="top"><a id="afbb843316fac4aa4235941209fbd047d" name="afbb843316fac4aa4235941209fbd047d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>__str__</b> () const</td></tr>
 <tr class="memdesc:afbb843316fac4aa4235941209fbd047d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the network in a readable manner. <br /></td></tr>
 <tr class="separator:afbb843316fac4aa4235941209fbd047d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:acc9b160312d831cd4606534d1d0ec3dc" id="r_acc9b160312d831cd4606534d1d0ec3dc"><td class="memItemLeft" align="right" valign="top"><a id="acc9b160312d831cd4606534d1d0ec3dc" name="acc9b160312d831cd4606534d1d0ec3dc"></a>
+std::vector&lt; <a class="el" href="classNeuronLayer.html">NeuronLayer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>layers</b></td></tr>
+<tr class="separator:acc9b160312d831cd4606534d1d0ec3dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Network with 1 or more NeuronLayers. </p>
 <p>This class represents a network of layers with neurons. The network can be given inputs, which will then return a number of outputs that is equal to the amount of Neurons in the last layer. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a7ac83dad3c94474667766885a0df07ca" name="a7ac83dad3c94474667766885a0df07ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ac83dad3c94474667766885a0df07ca">&#9670;&#160;</a></span>NeuronNetwork()</h2>
+<a id="a16d772b06e48bbcd930fcaba64108b57" name="a16d772b06e48bbcd930fcaba64108b57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16d772b06e48bbcd930fcaba64108b57">&#9670;&#160;</a></span>NeuronNetwork()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -140,7 +153,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>__str__</b> () const<
         <tr>
           <td class="memname">NeuronNetwork::NeuronNetwork </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="classNeuronLayer.html">NeuronLayer</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>layers</em></span></td><td>)</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classNeuronLayer.html">NeuronLayer</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>layers</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -157,16 +170,46 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>__str__</b> () const<
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a4750003f9cdec7e02d88a1c01bf24ccd" name="a4750003f9cdec7e02d88a1c01bf24ccd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4750003f9cdec7e02d88a1c01bf24ccd">&#9670;&#160;</a></span>feed_forward()</h2>
+<a id="a54f2417b9242d52802abbe1c3b97b941" name="a54f2417b9242d52802abbe1c3b97b941"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54f2417b9242d52802abbe1c3b97b941">&#9670;&#160;</a></span>backpropagation()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; bool &gt; NeuronNetwork::feed_forward </td>
+          <td class="memname">void NeuronNetwork::backpropagation </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; bool &gt;</td>          <td class="paramname"><span class="paramname"><em>inputs</em></span></td><td>)</td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>input</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>target</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Applies one iteration of backpropagation to the <a class="el" href="classNeuronNetwork.html" title="Network with 1 or more NeuronLayers.">NeuronNetwork</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Input to use for backpropagation </td></tr>
+    <tr><td class="paramname">target</td><td>Target to use for backpropagation </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8f9f687c6c8c76b6062c1ac21e65254a" name="a8f9f687c6c8c76b6062c1ac21e65254a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f9f687c6c8c76b6062c1ac21e65254a">&#9670;&#160;</a></span>feed_forward()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; double &gt; NeuronNetwork::feed_forward </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; double &gt;</td>          <td class="paramname"><span class="paramname"><em>inputs</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -175,11 +218,41 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>__str__</b> () const<
 <p>Gives outputs given inputs. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">inputs</td><td>The inputs for this output </td></tr>
+    <tr><td class="paramname">inputs</td><td>The inputs for this output</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;bool&gt;: A list of outputs </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;double&gt;: A list of outputs </dd></dl>
+
+</div>
+</div>
+<a id="aa24b189600a782f0d24e1366ea2d739b" name="aa24b189600a782f0d24e1366ea2d739b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa24b189600a782f0d24e1366ea2d739b">&#9670;&#160;</a></span>train()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NeuronNetwork::train </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>inputs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>targets</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Trains the <a class="el" href="classNeuronNetwork.html" title="Network with 1 or more NeuronLayers.">NeuronNetwork</a> using <code>backpropagation</code> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inputs</td><td>Inputs to use for backpropagation </td></tr>
+    <tr><td class="paramname">targets</td><td>Targets to use for backpropagation </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

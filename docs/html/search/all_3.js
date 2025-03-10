@@ -1,9 +1,5 @@
 var searchData=
 [
-  ['neuron_0',['Neuron',['../classNeuron.html',1,'Neuron'],['../classNeuron.html#a7a6faf8fd0dcdfd07620eb67081197e7',1,'Neuron::Neuron()']]],
-  ['neuron_2ehpp_1',['neuron.hpp',['../neuron_8hpp.html',1,'']]],
-  ['neuronlayer_2',['NeuronLayer',['../classNeuronLayer.html',1,'NeuronLayer'],['../classNeuronLayer.html#ac68c164c026c2bf3abe66de158d1f0e9',1,'NeuronLayer::NeuronLayer()']]],
-  ['neuronlayer_2ehpp_3',['neuronlayer.hpp',['../neuronlayer_8hpp.html',1,'']]],
-  ['neuronnetwork_4',['NeuronNetwork',['../classNeuronNetwork.html',1,'NeuronNetwork'],['../classNeuronNetwork.html#a7ac83dad3c94474667766885a0df07ca',1,'NeuronNetwork::NeuronNetwork()']]],
-  ['neuronnetwork_2ehpp_5',['neuronnetwork.hpp',['../neuronnetwork_8hpp.html',1,'']]]
+  ['delta_0',['delta',['../classNeuron.html#aa904706bd37db856c825bde75d7c2029',1,'Neuron']]],
+  ['doxygen_1',['Doxygen',['../md_README.html#autotoc_md2',1,'']]]
 ];

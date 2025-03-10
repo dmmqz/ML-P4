@@ -4,5 +4,6 @@ PROJECT_NAME     = "P4 - Backpropagation"
 OUTPUT_DIRECTORY = ./docs
 INPUT            = .
 RECURSIVE        = YES
-EXCLUDE          = ./test/include/
+EXCLUDE          = ./test/include/catch.hpp
+EXCLUDE          += ./train_test_split.py
 GENERATE_LATEX   = NO

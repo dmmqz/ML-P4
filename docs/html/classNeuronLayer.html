@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>P3 - Sigmoid neuron: NeuronLayer Class Reference</title>
+<title>P4 - Backpropagation: NeuronLayer Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">P3 - Sigmoid neuron
+   <div id="projectname">P4 - Backpropagation
    </div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
@@ -104,6 +104,7 @@ $(function(){initNavTree('classNeuronLayer.html',''); initResizable(true); });
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="classNeuronLayer-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">NeuronLayer Class Reference</div></div>
 </div><!--header-->
@@ -119,13 +120,19 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac68c164c026c2bf3abe66de158d1f0e9" id="r_ac68c164c026c2bf3abe66de158d1f0e9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac68c164c026c2bf3abe66de158d1f0e9">NeuronLayer</a> (const std::vector&lt; <a class="el" href="classNeuron.html">Neuron</a> &gt; &amp;neurons)</td></tr>
 <tr class="memdesc:ac68c164c026c2bf3abe66de158d1f0e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a layer of neurons.  <br /></td></tr>
 <tr class="separator:ac68c164c026c2bf3abe66de158d1f0e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a544be5084bc1cca2173935766e3a2467" id="r_a544be5084bc1cca2173935766e3a2467"><td class="memItemLeft" align="right" valign="top">std::vector&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a544be5084bc1cca2173935766e3a2467">output</a> (const std::vector&lt; bool &gt; &amp;inputs) const</td></tr>
-<tr class="memdesc:a544be5084bc1cca2173935766e3a2467"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives outputs given inputs.  <br /></td></tr>
-<tr class="separator:a544be5084bc1cca2173935766e3a2467"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a097e2c9b02f7edde98ad9d8aeb04749f" id="r_a097e2c9b02f7edde98ad9d8aeb04749f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a097e2c9b02f7edde98ad9d8aeb04749f">output</a> (const std::vector&lt; double &gt; &amp;inputs) const</td></tr>
+<tr class="memdesc:a097e2c9b02f7edde98ad9d8aeb04749f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives outputs given inputs.  <br /></td></tr>
+<tr class="separator:a097e2c9b02f7edde98ad9d8aeb04749f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f6cfac99b6ff59bb515ef523a6e3b55" id="r_a9f6cfac99b6ff59bb515ef523a6e3b55"><td class="memItemLeft" align="right" valign="top"><a id="a9f6cfac99b6ff59bb515ef523a6e3b55" name="a9f6cfac99b6ff59bb515ef523a6e3b55"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>__str__</b> () const</td></tr>
 <tr class="memdesc:a9f6cfac99b6ff59bb515ef523a6e3b55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the layer in a readable manner. <br /></td></tr>
 <tr class="separator:a9f6cfac99b6ff59bb515ef523a6e3b55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a657c1dcbd5fd8d1fe50232de5a9594a4" id="r_a657c1dcbd5fd8d1fe50232de5a9594a4"><td class="memItemLeft" align="right" valign="top"><a id="a657c1dcbd5fd8d1fe50232de5a9594a4" name="a657c1dcbd5fd8d1fe50232de5a9594a4"></a>
+std::vector&lt; <a class="el" href="classNeuron.html">Neuron</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>neurons</b></td></tr>
+<tr class="separator:a657c1dcbd5fd8d1fe50232de5a9594a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Layer with 1 or more Neurons. </p>
@@ -157,16 +164,16 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>__str__</b> () const<
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a544be5084bc1cca2173935766e3a2467" name="a544be5084bc1cca2173935766e3a2467"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a544be5084bc1cca2173935766e3a2467">&#9670;&#160;</a></span>output()</h2>
+<a id="a097e2c9b02f7edde98ad9d8aeb04749f" name="a097e2c9b02f7edde98ad9d8aeb04749f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a097e2c9b02f7edde98ad9d8aeb04749f">&#9670;&#160;</a></span>output()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; bool &gt; NeuronLayer::output </td>
+          <td class="memname">std::vector&lt; double &gt; NeuronLayer::output </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; bool &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>inputs</em></span></td><td>)</td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>inputs</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -179,7 +186,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>__str__</b> () const<
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;bool&gt;: A list of outputs </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;double&gt;: A list of outputs </dd></dl>
 
 </div>
 </div>
