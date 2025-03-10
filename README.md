@@ -19,3 +19,7 @@ Op het pad `docs/html/index.html` bevindt zich de documentatie voor deze opdrach
 ```bash
 doxygen Doxyfile
 ```
+
+## Classificaties
+Voor deze opdracht zijn de [iris dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_iris.html) en [digits dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html) gebruikt om de uitwerking te testen. Hierdoor duurt het draaien van de tests best lang (~10 minuten op mijn computer). Hieronder staan de resultaten mocht je het programma niet zelf willen draaien:
+![Results](results.png)
